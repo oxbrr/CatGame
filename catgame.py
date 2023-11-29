@@ -22,7 +22,6 @@ if cat_breed.lower() == "dog":
     print("This is more of a cat game, y'know? This wasn't really made for dogs...")
     delayedprint("Get outta here.")
     gameover()
-    
 else:
     print("Alright, lets see here...")
     delayedprint(f"A {cat_breed}. Alright man. Solid choice.")
@@ -60,4 +59,12 @@ delayedprint(f"Now you gotta take care of them, heres all of the ones you need t
 delayedprint(f"Let's start with playing with your cat, {cat_name}.")
 delayedprint(f"{cat_name} seems to be sitting on the floor, staring at you. You do have some toys, hopefully you choose one they like.")
 
-playtask = int()
+condition = True
+while condition:
+    playtask = int(input("Hmm... maybe you can find the right one if you can solve this! 3 + 3: "))
+    
+    if playtask == 6:
+        print("Hey! They enjoy it! Maybe a little too much, but they're playing. Maybe one more toy couldn't hurt? What was 10 + 20 again... ")
+        break  # Exit the loop since the user provided the correct answer
+    else:
+        print("That wasn't right. Try again!")
