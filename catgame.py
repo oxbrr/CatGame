@@ -21,31 +21,33 @@ print("Welcome to cat game. It's a game about taking care a of a cat you make. T
 cat_name = input("Please enter the name of the cat you wanna take care of: ")
 delayedprint(f"'{cat_name}', huh? Very interesting... but alright.")
 
-# cat_name is the name of the cat. pretty important if you ask me. used for when the game is talking about the owner's cat
+# cat_name is the name of the cat. pretty important if you ask me. used for when the game is talking about the owner's cat.
 
 cat_breed = input(f"now, what kinda cat is {cat_name}? here is a solid choice, ragdoll. or just type the breed you want: ")
-
-if cat_breed.lower() == "dog":
-    delayedprint("This is more of a cat game, y'know? This wasn't really made for dogs...")
-    delayedprint("Get outta here.")
-    verydelayedprint("GAME OVER! - Wrong animal")
-    gameover()
-else:
-    delayedprint("Alright, lets see here...")
-    delayedprint(f"A {cat_breed}. Alright man. Solid choice.")
+condition = True
+while True:
+    if cat_breed.lower() == "dog":
+        delayedprint("This is more of a cat game, y'know? This wasn't really made for dogs...")
+        delayedprint("Get outta here.")
+        verydelayedprint("GAME OVER! - Wrong animal")
+        gameover()
+    elif cat_breed == int(1-100):
+        print("brother, you've got to put letters. I don't even care if you put like, gibberish.")
+    else:
+        delayedprint("Alright, lets see here...")
+        delayedprint(f"A {cat_breed}. Alright man. Solid choice.")
+        break
 
 # cat_breed is the cat's breed. shows up occasionally. small easter egg, 'dog'. does cause the user to restart from the beginning.
-    
-cat_age = int(input(f"So, {cat_name} is a {cat_breed}. How old are they in years? "))
-
+cat_age = int(input(f"So, {cat_name} is a {cat_breed}. How old are they in (human) years? "))
 if cat_age > 9:
     delayedprint("That cat is probably older than you in cat years.")
 elif cat_age > 6:
     delayedprint("That's a mature cat, in age of course, Maybe they still aren't acting mature.")
-elif cat_age > 2:
+elif cat_age > 1:
     delayedprint("That's a young cat.")
 else:
-    print("That's probably a pretty young cat. Still a baby practically...")
+    print("That's a kitty.")
     
 # cat_age is uncommonly used. it's just to see how young/old the cat is. some small flavor text added.
     
@@ -80,14 +82,14 @@ while condition:
     playtask = int(input("Hmm... maybe you can find the right one if you can solve this! 3 + 3 = "))
     
     if playtask == 6:
-        print("Hey! They enjoy it! Maybe a little too much, but they're playing.")
+        delayedprint("Hey! They enjoy it! Maybe a little too much, but they're playing.")
         break  # Exit the loop since the user provided the correct answer
     else:
-        print("That wasn't right. Try again!")
+        delayedprint(f"You slide the toy around, {cat_name} is unfazed. I don't think thats right.")
 
 #some simple math. the while condition thing makes a loop, so if the user gets 3+3 wrong, they can try again. 
 
-playtask = int(input("Alright, they seem to be enjoying playing, you could throw them another toy so they won't get bored, but they seem very invested... You wanna try? 1 for yes, 2 for no. "))
+playtask = int(input("Alright, they seem to be enjoying playing, you could throw them another toy so they won't get bored, but they seem very invested & focused... You wanna try? 1 for yes, 2 for no. "))
 
 if playtask == 1:
         delayedprint(f"Uh... you accidently throw the toy right at {cat_name}! They look a little angry...")
@@ -96,6 +98,7 @@ if playtask == 1:
         verydelayedprint("GAME OVER! - Death by a thousand scratches")
         gameover()
 elif playtask == 2:
+    delayedprint("...")
     delayedprint("Eh... they're probably fine with just that toy. Maybe.")
 else:
     print("Instead of deciding anything, you stare at your cat. They take note of your presense.")
@@ -110,23 +113,95 @@ else:
 
 delayedprint(f"Good job! You've successfully played with {cat_name}. You're so good, you did it first try! (hopefully)")
 verydelayedprint("I'd say that your cat looks pretty hungry. We- You, should take care of that.")
-delayedprint("Due to reasons outside of your control, you have to go shopping.")
+delayedprint("Due to reasons outside of your control (no cat food), you have to go shopping.")
 verydelayedprint("...")
 delayedprint("At the store, you can see some regular cat food, and some gourmet cat food.")
-delayedprint("Obviously, that gourmet food is gonna cost a lot. About... $20. The regular costs about $11.")
-
+delayedprint("Obviously, that gourmet food is gonna cost a lot. About... $20. The regular costs about $11. That sales tax goes wild.")
+money = int(30)
 condition = True
 while condition:
     feedtask = int(input(f"You have 30 dollars. You aren't sure if {cat_name} is a picky eater. How much cash would you have after buying either the gourmet or regular option? $"))
     if feedtask == 10:
+        money = int(10)
         print("With a heavy heart, you spend 20 bucks on the gourmet food. It's small... but it looks quite nice.")
         delayedprint(f"Back home, you serve it to {cat_name}. They gallop over, and devour it. I guess they didn't really... care about taste.")
         break
     elif feedtask == 19:
+        money = int(19)
         print("You decide to get the regular food. It looks basic, but it'll probably last for a while. Apparently its for all ages so...")
         delayedprint(f"After realizing you saved 20 dollars, you serve up the food to {cat_name}.")
         verydelayedprint("...")
         print("They eat it. They don't look sad. Or happy. But hey, they're fed at least.")
         break
     else:
-        print("You stand there. You walk along the aisle, searching for a deal. It's all the same. One or the other...")
+        delayedprint("You stand there. You walk along the aisle, searching for a deal. It's all the same. Either the gourmet or the regular.")
+        
+delayedprint(f"You've got ${money} left.")
+verydelayedprint(f"Good job! You've fed {cat_name}.")
+delayedprint(f"For your final task, you've got to pet {cat_name}. Probably one of the most dangerous tasks for a new cat owner.")
+print(f"{cat_name} seems to be sun bathing near a window.")
+fluffycat = (input(f"Wait, is {cat_name} fluffy? Yes or No? "))
+condition = True
+while condition:
+    if fluffycat.lower() == "yes":
+        delayedprint("Oh. Uh...")
+        delayedprint(f"{cat_name}'s fur makes them look like a soft pillow or blanket. Or they're just slightly chubby, I dunno.")
+        break
+    elif fluffycat.lower() == "no":
+        delayedprint("Right. They're not fluffy.")
+        delayedprint(f"{cat_name} looks sleak & shiny. Probably still squishy anyway. You also wouldn't get as much cat hair everywhere...")
+        break
+    else:
+        delayedprint("You can't really see if they are fluffy or not. Maybe take a closer look?")
+
+print("Anyway, it's time to interrupt their photosynthesis, and pet them.")
+pettask = int(input(f"To find out where {cat_name} likes to be pet, you gotta take a guess... what was does 3 * 3 = "))
+if pettask == 9:
+    print("You let them sniff your hand...")
+    delayedprint("They seem to approve of your bravery. They relax a little.")
+else:
+    delayedprint("You start petting them immediately.")
+    delayedprint("In the moment, it seemed like a good idea.")
+    verydelayedprint("It was not.")
+    delayedprint("You're pretty sure you saw your hand get disconnected from your arm immediately. At least before you went into shock.")
+    verydelayedprint("GAME OVER! - Hand privilege removed")
+    gameover()
+
+if fluffycat == "yes":
+    print(f"You pet that fluffy cat, by petting it's head slowly but lovingly. {cat_name} starts purring loudly. They enjoy it!")
+else:
+    print(f"You pet that smooth cat ambidextrously. {cat_name} starts purring loudly, they like it!")
+
+print(f"Soon enough, {cat_name} starts to trust you more. They lay on their back.")
+delayedprint("Your final challenge. Rub their belly without getting mauled or having your fingers bitten off. (good luck)")
+
+pettask = int(input("(hint, PEMDAS) What does 6*3(3-1)=?: "))
+if pettask == 36:
+    delayedprint("You pet them without any fear in mind. You knew the risks.")
+    print("Yet the cat allows you. You are worthy.")
+else:
+    print("...")
+    verydelayedprint("You rub their belly. It's soft & warm... but something feels off.")
+    delayedprint(f"Fear strikes you, as you look up at {cat_name}")
+    print("In an instant, they jump up, their claws are out, and their mouth is open.")
+    delayedprint("They chomp right onto your arm, taking a comically large chunk out of it.")
+    verydelayedprint("GAME OVER! - Actual skill issue")
+    gameover()
+
+verydelayedprint("...")
+print(f"Great job. You've succesfully taken care of {cat_name}, a {cat_age} year old {cat_breed}. You have a total of ${money} left.")
+verydelayedprint("Thank you for playing, my first coded game.")
+print("The game will restart if you want to.")
+condition = True
+while True:
+    end = int(input("Type 1 to restart. Type 2 to see your cat information."))
+    if end == 1:
+        delayedprint(f"Thank you again. Even if {cat_name} won't be on this game soon, doesn't mean you'll forget about them. Probably.")
+        verydelayedprint("GAME OVER! - Certified Cat Owner")
+        gameover()
+    elif end == 2:
+        print("That's fair.")
+        if fluffycat == "yes":
+            delayedprint(f"Your cat's name is {cat_name}. They are a fluffy {cat_breed}, and is {cat_age} year(s) old.")
+        else:
+            delayedprint(f"Your cat's name is {cat_name}. They are a smooth {cat_breed}, and is {cat_age} year(s) old.")
