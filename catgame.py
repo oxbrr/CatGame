@@ -71,7 +71,7 @@ task_list = [ "Feeding", "Playing", "Petting" ]
 feedtask = task_list[0]
 playtask = task_list[1]
 pettask = task_list[2]
-delayedprint(f"Now you gotta take care of them, heres all of the ones you need to do, {task_list}.")
+delayedprint(f"Now you gotta take care of them, heres all of the ones you need to do, {task_list[0]}.")
 delayedprint(f"Let's start with playing with your cat, {cat_name}.")
 delayedprint(f"{cat_name} seems to be sitting on the floor, staring at you. You do have some toys, hopefully you choose one they like.")
 
@@ -79,9 +79,9 @@ delayedprint(f"{cat_name} seems to be sitting on the floor, staring at you. You 
 
 condition = True
 while condition:
-    playtask = int(input("Hmm... maybe you can find the right one if you can solve this! 3 + 3 = "))
+    task_list[1] = int(input("Hmm... maybe you can find the right one if you can solve this! 3 + 3 = "))
     
-    if playtask == 6:
+    if task_list[1] == 6:
         delayedprint("Hey! They enjoy it! Maybe a little too much, but they're playing.")
         break  # Exit the loop since the user provided the correct answer
     else:
@@ -89,15 +89,15 @@ while condition:
 
 #some simple math. the while condition thing makes a loop, so if the user gets 3+3 wrong, they can try again. 
 
-playtask = int(input("Alright, they seem to be enjoying playing, you could throw them another toy so they won't get bored, but they seem very invested & focused... You wanna try? 1 for yes, 2 for no. "))
+task_list[1] = int(input("Alright, they seem to be enjoying playing, you could throw them another toy so they won't get bored, but they seem very invested & focused... You wanna try? 1 for yes, 2 for no. "))
 
-if playtask == 1:
+if task_list[1] == 1:
         delayedprint(f"Uh... you accidently throw the toy right at {cat_name}! They look a little angry...")
         delayedprint("I think they might've taken it as a sign of aggression...?")
         delayedprint("Uh oh. I think they're getting ready to jump a-")
         verydelayedprint("GAME OVER! - Death by a thousand scratches")
         gameover()
-elif playtask == 2:
+elif task_list[1] == 2:
     delayedprint("...")
     delayedprint("Eh... they're probably fine with just that toy. Maybe.")
 else:
@@ -120,13 +120,13 @@ delayedprint("Obviously, that gourmet food is gonna cost a lot. About... $20. Th
 money = int(30)
 condition = True
 while condition:
-    feedtask = int(input(f"You have 30 dollars. You aren't sure if {cat_name} is a picky eater. How much cash would you have after buying either the gourmet or regular option? $"))
-    if feedtask == 10:
+    task_list[0] = int(input(f"You have 30 dollars. You aren't sure if {cat_name} is a picky eater. How much cash would you have after buying either the gourmet or regular option? $"))
+    if task_list[0] == 10:
         money = int(10)
         print("With a heavy heart, you spend 20 bucks on the gourmet food. It's small... but it looks quite nice.")
         delayedprint(f"Back home, you serve it to {cat_name}. They gallop over, and devour it. I guess they didn't really... care about taste.")
         break
-    elif feedtask == 19:
+    elif task_list[0] == 19:
         money = int(19)
         print("You decide to get the regular food. It looks basic, but it'll probably last for a while. Apparently its for all ages so...")
         delayedprint(f"After realizing you saved 20 dollars, you serve up the food to {cat_name}.")
@@ -164,8 +164,8 @@ while condition:
 # condition = true comes back again, just to make a loop, since it's just easy to make and fits the context here.
 
 print("Anyway, it's time to interrupt their photosynthesis, and pet them.")
-pettask = int(input(f"To find out where {cat_name} likes to be pet, you gotta take a guess... what was does 3 * 3 = "))
-if pettask == 9:
+task_list[2] = int(input(f"To find out where {cat_name} likes to be pet, you gotta take a guess... what was does 3 * 3 = "))
+if task_list[2] == 9:
     print("You let them sniff your hand...")
     delayedprint("They seem to approve of your bravery. They relax a little.")
 else:
@@ -189,8 +189,8 @@ else:
 print(f"Soon enough, {cat_name} starts to trust you more. They lay on their back.")
 delayedprint("Your final challenge. Rub their belly without getting mauled or having your fingers bitten off. (good luck)")
 
-pettask = int(input("(hint, PEMDAS) What does 6*3(3-1)=?: "))
-if pettask == 36:
+task_list[2] = int(input("(hint, PEMDAS) What does 6*3(3-1)=?: "))
+if task_list[2] == 36:
     delayedprint("You pet them without any fear in mind. You knew the risks.")
     print("Yet the cat allows you. You are worthy.")
 else:
